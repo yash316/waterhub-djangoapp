@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block title %} Contact Us - WaterHub @DoorStep Water Delivery {% endblock %}
+{% block css %}
+#hero-bg {
+background-size: cover;
+background-position: center;
+<!--opacity: 0.6;-->
+}
+.social{
+background-color: #385E63;
+font-family: Helvetica;
+color : white;
+}
+.head-title{
+color:#003333;
+}
+{% endblock %}
+
+
+{% block body %}
+{% load static %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+{% endif %}
+<!-- Hero's section starts  -->
+<div id="hero-bg" class="hero-section p-md-5 mb-4 text-white rounded bg-dark"
+     style="background-image: url('{% static '/images/wave.jpg' %}');">
+    <div class="col-md-6 px-0">
+        <h1 class="display-4 fst-italic text-dark fw-bold">Contact Us</h1>
+    </div>
+</div>
+
+<!-- Hero's Section ends -->
+
+<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+        <div class="col-lg-5 text-center text-lg-start">
+            <h1 class="display-5 fw-bold lh-1 mb-3 head-title">Get in touch with us...!</h1>
+            <div class="py-4">
+                <div class="border rounded-3 px-2 social py-3">
+                    <img src="{% static 'images/gmail.png' %}" height="50">
+                    sameer.watersupplier@gmail.com
+                </div>
+                <div class="border mt-3 rounded-3 px-2 social py-3">
+                    <img src="{% static 'images/phone.png' %}" height="50">
+                    +91 9867732050 / 222 98685452
+                </div>
+                <div class="border mt-3 rounded-3 px-2 social py-3">
+                    <img src="{% static 'images/google-maps.png' %}" height="50">
+                    Miragaon, Mira Road, Thane-401107
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="col-md-10 mx-auto col-lg-7">
+            <form class="p-4 p-md-5 border rounded-3 bg-light" action="" method="post">
+                {% csrf_token %}
+                <h3 class="text-dark fw-bolder fs-5 mb-2">Fill the below form to get in touch with us.</h3>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="name" placeholder="name@example.com">
+                    <label>Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" name="email" placeholder="name@example.com">
+                    <label>Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="tel" class="form-control" name="phone" placeholder="Phone">
+                    <label>Phone</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="message" placeholder="Phone">
+                    <label>Message</label>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary submit_btn w-100 my-4">Send Message</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

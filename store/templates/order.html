@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Cart-Eshopping{% endblock%}
+{% block body %}
+{%load cart%}
+{% load static %}
+<div class="container">
+    <div class="border rounded p-4 m-4">
+        <p class="display-6 pl-4 ml-4 fw-bold">Your Orders</p>
+        <hr>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Sno.</th>
+                <th>Product</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Payment<br>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{order.product_list}}</td>
+                <td>{{order.date}}</td>
+                {% if order.status %}
+                <td><small class="badge bg-success">Confirmed</small></td>
+                {% else %}
+                <td><small class="badge bg-warning text-dark">Pending</small></td>
+                {% endif %}
+                {% if order.paid %}
+                <td><img src="{% static 'images/checked.png' %}" height="45"></td>
+                {% else %}
+                <td><img src="{% static 'images/icons8-data-pending-48.png' %}"></td>
+                {% endif %}
+
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock%}

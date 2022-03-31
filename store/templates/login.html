@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% block title %} {% endblock %}
+{% block css %}
+
+/* Google Poppins Font CDN Link */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+/* Variables */
+
+:root {
+--primary-font-family: 'Poppins', sans-serif;
+--light-white: #f5f8fa;
+--gray: #5e6278;
+--gray-1: #e3e3e3;
+}
+
+body {
+font-family: var(--primary-font-family);
+font-size: 14px;
+}
+/* Main CSS */
+<!--.main-container{-->
+<!--background: rgb(56,94,99);-->
+<!--background: linear-gradient(90deg, rgba(56,94,99,1) 50%, rgba(0,0,0,0.3368697820925245) 100%);-->
+<!--}-->
+.wrapper {
+display: flex;
+justify-content: center;
+margin-top: 8%;
+padding: 0 0 100px;
+background-image: url('images/bg.png');
+background-repeat: no-repeat;
+background-position: bottom center;
+background-attachment: fixed;
+background-size: contain;
+min-height: 100%;
+}
+
+.wrapper .logo img {
+max-width: 40%;
+}
+
+.wrapper input {
+background-color: var(--light-white);
+border-color: var(--light-white);
+color: var(--gray);
+
+}
+
+
+.wrapper input:focus {
+box-shadow: none;
+}
+
+.wrapper .submit_btn {
+padding: 15px;
+font-weight: 500;
+}
+
+.wrapper .login_with {
+padding: 15px;
+font-size: 15px;
+font-weight: 500;
+transition: 0.3s ease-in-out;
+}
+
+.wrapper .submit_btn:focus,
+.wrapper .login_with:focus {
+box-shadow: none;
+}
+
+.wrapper .login_with:hover {
+background-color: var(--gray-1);
+border-color: var(--gray-1);
+}
+
+.wrapper .login_with img {
+max-width: 8%;
+}
+.title{
+font-family:Luminari ;
+color:#385E63;
+}
+{% endblock %}
+{% block body %}
+{% load static %}
+<body>
+
+<div class="container main-container bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-lg-6 mt-3 mb-3">
+            <div class="container">
+                <div class="text-center">
+                    <form class="rounded bg-white shadow py-5 px-4" action="" method="post">
+                        {% if error %}
+                        <div class="alert alert-danger" role="alert">{{error}}</div>
+                        {% endif %} {% csrf_token %}
+                        <h3 class="text-dark fw-bolder fs-4 mb-2">Sign In to WaterHub</h3>
+                        <div class="fw-normal text-muted mb-4"> New Here?
+                            <a href="/signup" class="text-primary fw-bold text-decoration-none">Create an Account</a>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="email" name="email"
+                                   placeholder="name@example.com">
+                            <label>Email address</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="password" name="password"
+                                   placeholder="Password">
+                            <label>Password</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary submit_btn w-100 my-4">Login</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mt-3 mb-3 text-center">
+            <img src="{% static 'images/water-service-man.png' %}" height="400">
+        </div>
+
+    </div>
+</div>
+</body>
+{% endblock %}

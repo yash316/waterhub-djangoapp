@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %} About Us - WaterHub @DoorStep Water Delivery {% endblock %}
+{% block css %}
+#hero-bg {
+background-size: cover;
+background-position: center;
+<!--opacity: 0.6;-->
+}
+.about-heading{
+color: #003333;
+font-family: Helvetica Neue;
+}
+.lead{
+font-family:Candara;
+font-weight:400;
+}
+
+{% endblock %}
+
+{% block body %}
+{% load static %}
+
+<!-- Hero's section starts  -->
+<div id="hero-bg" class="hero-section p-md-5 mb-4 text-white rounded bg-dark"
+     style="background-image: url('{% static '/images/wave.jpg' %}');">
+    <div class="col-md-6 px-0">
+        <h1 class="display-4 fst-italic text-dark fw-bold">About Us</h1>
+    </div>
+</div>
+
+<!-- Hero's Section ends -->
+
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+            <img src="{% static 'images/bottled-water-delivery-app.jpg' %}" class="d-block mx-lg-auto img-fluid"
+                 alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+        </div>
+        <div class="col-lg-6">
+            <h1 class="about-heading display-5 fw-bold lh-1 mb-3"><b>About Us</b></h1>
+            <p class="lead"><b>"WaterHub"</b> is an ecommerce platform for delivering of drinking water in Mira Road, Thane.
+                Our strong distribution network ensures that we reach consumers always on time, with the legacy of team
+                spirit, trust , prosperity, commitment, excellence and vigor to strive for more, we are working towards
+                providing the best services.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

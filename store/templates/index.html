@@ -1,0 +1,500 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} WaterHub @DoorStep Water Delivery {% endblock %}
+{% block css %}
+#hero-bg {
+background-size: cover;
+background-position: center;
+opacity: 25;
+}
+.lead {
+font-family: Helvetica Neue;
+}
+.service-heading{
+color: #003333;
+font-family: Palatino  ;
+font-size: 28px;
+font-weight: 500;
+text-align:center;
+}
+.covid-heading{
+color: #003333;
+font-family: Palatino  ;
+font-size: 20px;
+margin: 10px;
+font-weight: 500;
+}
+.bd-placeholder-img
+{
+font-size: 1.125rem;
+text-anchor: middle;
+-webkit-user-select: none;
+-moz-user-select: none;
+user-select: none;
+}
+/* Product Carousel CSS starts */
+.main-heading {
+color: #003333;
+font-family: Helvetica Neue;
+font-size: 35px;
+font-weight: 400;
+text-align:center;
+text-transform: uppercase;
+position: relative;
+margin: 30px 0 60px;
+}
+.main-heading::after {
+content: "";
+width: 100px;
+position: absolute;
+margin: 0 auto;
+height: 4px;
+border-radius: 1px;
+background: #343434;
+left: 0;
+right: 0;
+bottom: -20px;
+}
+.carousel {
+margin: 50px auto;
+padding: 0 70px;
+}
+.carousel .item {
+color: #747d89;
+min-height: 325px;
+text-align: center;
+overflow: hidden;
+}
+.carousel .thumb-wrapper {
+padding: 25px 15px;
+background: #fff;
+border-radius: 6px;
+text-align: center;
+position:relative;
+box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+.carousel .item .img-box {
+height: 120px;
+margin-bottom: 20px;
+width: 100%;
+position: relative;
+}
+.carousel .item img {
+max-width: 100%;
+max-height: 100%;
+display: inline-block;
+position: absolute;
+bottom: 0;
+margin: 0 auto;
+left: 0;
+right: 0;
+}
+.carousel .item h4 {
+font-size: 18px;
+}
+.carousel .item h4, .carousel .item p, .carousel .item ul {
+margin-bottom: 5px;
+}
+.carousel .thumb-content .btn {
+color: #003333;
+font-size: 11px;
+text-transform:uppercase;
+font-weight: bold;
+background: none;
+border: 1px solid #003333;
+padding: 6px 14px;
+margin-top: 5px;
+line-height: 16px;
+border-radius: 20px;
+}
+.carousel .thumb-content .btn:hover, .carousel .thumb-content .btn:focus {
+color: #fff;
+background:#003333;
+box-shadow: none;
+}
+.carousel .thumb-content .btn i {
+font-size: 14px;
+font-weight: bold;
+margin-left: 5px;
+}
+.carousel .item-price {
+font-size: 13px;
+padding: 2px 0;
+}
+.carousel .item-price strike {
+opacity: 0.7;
+margin-right: 5px;
+}
+.carousel-control-prev,
+.carousel-control-next{
+height: 44px;
+width: 40px;
+background: #385E63;
+margin: auto 0;
+border-radius: 4px;
+opacity: 0.8;
+}
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+background: #385E63;
+opacity: 1;
+}
+.carousel-control-prev i,
+.carousel-control-next i {
+font-size: 36px;
+position: absolute;
+top: 50%;
+display: inline-block;
+margin: -19px 0 0 0;
+z-index: 5; left: 0;
+right: 0; color: #fff;
+text-shadow: none;
+font-weight: bold;
+}
+.carousel-control-prev i {
+margin-left: -2px;
+}
+.carousel-control-next i {
+margin-right: -4px;
+}
+.carousel-indicators {
+bottom: -50px;
+}
+.carousel-indicators li,
+.carousel-indicators li.active {
+width: 10px;
+height: 10px;
+margin: 4px;
+border-radius: 50%;
+border: none;
+}
+.carousel-indicators li {
+background: rgba(0, 0, 0, 0.2);
+}
+.carousel-indicators li.active {
+background: rgba(0, 0, 0, 0.6);
+}
+/* Product Carousel CSS Ends */
+@media (min-width: 768px) {
+.bd-placeholder-img-lg {
+font-size: 3.5rem;
+}
+}
+{% endblock %}
+{% block body %}
+{% load static %}
+<!-- Hero's section starts  -->
+<div id="hero-bg" class="hero-section p-4 p-md-5 mb-4 text-white rounded bg-dark" style="background-image: url('{% static '/images/waterhub.jpg' %}');">
+    <div class="col-md-6 px-0">
+        <h1 class="display-4 fst-italic text-white fw-bold">Pure & Healthy Drinking Water</h1>
+        <p class="lead my-3 fw-bold">Our mission is simple, We want to make it easy for you to live an easy & healtheir life by devlivering hygienic water on affordable prices.</p>
+        <h5><span class="badge rounded-pill bg-warning text-dark">Currently Serving in Mira Road Only</span></h5>
+    </div>
+</div>
+<!-- Hero's Section ends -->
+
+
+<!-- Services Section starts -->
+<div class="px-4 pt-5 mb-5 my-5">
+    <h1 class="text-center main-heading"><b>Services We Provide</b></h1>
+    <div class="container">
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="col d-flex align-items-start">
+        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+          <img src="{% static 'images/event.png' %}" height="50">
+        </div>
+        <div>
+          <h3>Event Water Supplier</h3>
+          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+          <img src="{% static 'images/water.png' %}" height="50">
+        </div>
+        <div>
+          <h3>Daily basis Water Supply</h3>
+          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+          <img src="{% static 'images/inventory.png' %}" height="50">
+        </div>
+        <div>
+          <h3>Wholesale Water Supply </h3>
+          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="overflow-hidden text-center" style="max-height: 30vh;">
+        <div class="container px-5">
+            <img src="{% static '/images/bisleri-soda-1595405305-5528829.png' %}" class="img-fluid rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="700" loading="lazy">
+        </div>
+    </div>
+</div>
+<!-- Services section ends -->
+
+
+<!-- why choose us sections starts  -->
+<div class="container row mx-auto mt-5 mb-5">
+    <h2 class="text-center main-heading mt-5">Why Our <b>Products Are Best</b></h2>
+    <div class="col-lg-3 text-center">
+        <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg> -->
+        <img class="bd-placeholder-img rounded-circle" src="{% static '/images/why-us-icon4.png' %}">
+        <h2 class="service-heading mt-3 mb-2">Best Services</h2>
+        <p>One’s Need extends optimal online water delivery services.</p>
+    </div>
+    <div class="col-lg-3 text-center">
+        <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg> -->
+        <img class="bd-placeholder-img rounded-circle" src="{% static '/images/why-us-icon3.png'%}">
+        <h2 class="service-heading mt-3 mb-2">Free Delivery</h2>
+        <p>We deliver to your choice of address without any extra charges.</p>
+    </div>
+    <div class="col-lg-3 text-center">
+        <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg> -->
+        <img class="bd-placeholder-img rounded-circle" src="{% static '/images/why-us-icon2.png'%}">
+        <h2 class="service-heading mt-3 mb-2">Secure Payment</h2>
+        <p>Convenient and safe payment options for every order.</p>
+    </div>
+    <div class="col-lg-3 text-center">
+        <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg> -->
+        <img class="bd-placeholder-img rounded-circle" src="{% static '/images/why-us-icon1.png'%}">
+        <h2 class="service-heading mt-3 mb-2">Best Quality</h2>
+        <p>Safe, Pure, and Hygienic Bottled Drinking Water.</p>
+    </div>
+
+</div>
+<!-- Why choose us section ends -->
+
+<!--Product Carousel Starts here-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="main-heading">Our <b>Products</b></h2>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+                <!-- Carousel indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner">
+                    <div class="item carousel-item active">
+                        <div class="row">
+
+                            <div class="col-sm-3">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="{% static 'images/bisleri_20_liter.png' %}" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Bisleri 20 Liter</h4>
+                                        <p class="item-price"><strike>₹110.00</strike> <b>₹95.00</b></p>
+                                        <a href="/shop" class="btn btn-primary">Shop</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="{% static 'images/aquafina_20_liter.png' %}" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Aquafina 20 Liter</h4>
+                                        <p class="item-price"><strike>₹90.00</strike> <b>₹70.00</b></p>
+                                        <a href="/shop" class="btn btn-primary">Shop</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="{% static 'images/RO_Water_20liter.png' %}" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Ro Water 20 Liter</h4>
+                                        <p class="item-price"><strike>₹50.00</strike> <b>₹30.00</b></p>
+                                        <a href="/shop" class="btn btn-primary">Shop</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="{% static 'images/kinely_20_liter.png' %}" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Kinely 20 Liter</h4>
+                                        <p class="item-price"><strike>₹100.00</strike> <b>₹80.00</b></p>
+                                        <a href="/shop" class="btn btn-primary">Shop</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="item carousel-item">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="{% static 'images/aquafina_1liter.png' %}" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Aquafina 1 Liter</h4>
+                                        <p class="item-price"><strike>₹170.00</strike> <b>₹155.00</b></p>
+                                        <a href="/shop" class="btn btn-primary">Shop</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="{% static 'images/bisleri_2_liter.png' %}" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Bisleri 1 Liter</h4>
+                                        <p class="item-price"><strike>₹280.00</strike> <b>₹240.00</b></p>
+                                        <a href="/shop" class="btn btn-primary">Shop</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="{% static 'images/kinley_1_liter.png' %}" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Kinely 1 Liter</h4>
+                                        <p class="item-price"><strike>₹220.00</strike> <b>₹170.00</b></p>
+                                        <a href="/shop" class="btn btn-primary">Shop</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="{% static 'images/RO_water_10_liter.jpg' %}" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Ro Water 10 Liter </h4>
+                                        <p class="item-price"><strike>₹40.00</strike> <b>₹20.00</b></p>
+                                        <a href="/shop" class="btn btn-primary">Shop</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="item carousel-item">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="{% static 'images/bisleri_250_ml.png' %}" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Bisleri 250 ml</h4>
+                                        <p class="item-price"><strike>₹120.00</strike> <b>₹90.00</b></p>
+                                        <a href="/shop" class="btn btn-primary">Shop</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="{% static 'images/sprinte_can.jpg' %}" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Sprite 300ml</h4>
+                                        <p class="item-price"><strike>₹290.00</strike> <b>₹210.00</b></p>
+                                        <a href="/shop" class="btn btn-primary">Shop</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="{% static 'images/cocacolacan.png' %}" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Coca Cola 300ml</h4>
+                                        <p class="item-price"><strike>₹290.00</strike> <b>₹210.00</b></p>
+                                        <a href="/shop" class="btn btn-primary">Shop</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="{% static 'images/thumsup_can.jpg' %}" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Thums Up 300ml </h4>
+                                        <p class="item-price"><strike>₹260.00</strike> <b>₹200.00</b></p>
+                                        <a href="/shop" class="btn btn-primary">Shop</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Carousel controls -->
+                <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Product Carousel Ends-->
+
+<!-- Covid Info section starts -->
+<div class="container mt-4 mx-auto">
+    <div class="row">
+        <h2 class="text-center main-heading">Best Practices Post Covid</h2>
+        <div class="col-lg-4 text-center mb-5">
+            <div class="card m-3 h-100">
+                <img class="bd-placeholder-img" src="{% static 'images/practices-1.jpg' %}">
+                <h5 class="mb-4 covid-heading">Sanitized Bottles Before Delivery</h5>
+            </div>
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4 text-center mb-5">
+            <div class="card m-3 h-100">
+                <img class="bd-placeholder-img" src="{% static 'images/practices-2.jpg' %}">
+                <h5 class="mb-4 covid-heading">Maintaining Social Distance</h5>
+            </div>
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4 text-center">
+            <div class="card m-3">
+                <img class="bd-placeholder-img" src="{% static 'images/practices-3.jpg' %}">
+                <h5 class="mb-4 covid-heading">Taking Regular Temp Of Delivery Staff Before Dispatch, Hygiene Factors</h5>
+            </div>
+        </div>
+        <!-- /.col-lg-4 -->
+    </div>
+
+</div>
+<!-- Covid Info section ends -->
+{% endblock%}

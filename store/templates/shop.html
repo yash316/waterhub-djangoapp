@@ -1,0 +1,105 @@
+{% extends 'base.html' %} {% load static %}
+<!-- title block -->
+{% block title %} Shop - WaterHub @DoorStep Water Delivery {% endblock %}
+
+<!-- css block -->
+{% block css %}
+.product-cart{
+border-radius: 6px;
+border-color:#385E63;
+}
+
+.product-price{
+color : #385E63;
+font-family: Bookman;
+}
+input[type=submit]{
+background-color: #385E63;
+color: white;
+}
+.product-name{
+color:#385E63;
+font-family: Georgia;
+}
+.product-pack{
+color:#78BF00;
+font-family: Helvetica;
+}
+.category{
+background-color:#385E63;
+color: white;
+font-family: Helvetica;
+font-size: 20px;
+}
+.filter-icon{
+padding-left: 10px;
+}
+.cart-q{
+background-color:#E4FBFF;
+}
+{% endblock %}
+{% block body %}
+{% load cart %}
+
+<div class="container-fluid ">
+    <div class="row mt-3">
+        <!-- Filters -->
+        <div class="col-lg-3 mx-auto">
+            <a href="" class="list-group-item list-group-item-action category">Filter By Category<img src="{% static 'images/filter.png' %}" height="32" class="filter-icon"></a>
+
+            <a href="/shop" class="list-group-item list-group-item-action">All Products</a>
+            <!-- product Filter -->
+            {% for category in categories %}
+            <ul class="list-group">
+                <a href="/shop/?category={{category.id}}" class="list-group-item list-group-item-action">{{category.name}}</a>
+            </ul>
+            {% endfor %}
+        </div>
+
+        <!-- All products -->
+        <div id="products" class="col-lg-9 mx-auto">
+            <div class="row mx-auto">
+                {% for product in products%}
+                <div class="card mx-auto mb-3 product-cart" id="{{product.id}}" style="width: 18rem;">
+                    <img src="{{product.image.url}}" class="card-img-top product-img" alt="...">
+                    <div class="item card-body no-gutters">
+                        <h5 class="product-name text-center product-name ">{{product.name}}</h5>
+                        <h6 class="product-name text-center product-pack ">({{product.pack}})</h6>
+                        <h4 class="card-text product-price text-center"><b>Rs.{{product.price}}</b></h4>
+                        <!-- {{product|is_in_cart:request.session.cart}} -->
+
+                    </div>
+
+                    <div class="card-footer p-0 no-gutters">
+                        {% if product|is_in_cart:request.session.cart %}
+                        <div class="row no-gutters">
+                            <form action="/shop/#{{product.id}}" class="col-2 mb-2 " method="post">
+                                {% csrf_token %}
+                                <input hidden type="text" name='product' value='{{product.id}}'>
+                                <input hidden type="text" name='remove' value='True'>
+                                <input type="submit" value=" - " class="btn btn-block btn-light border-right">
+                            </form>
+                            <div class="text-center col mb-2 cart-q">{{product|cart_quantity:request.session.cart}} in cart</div>
+                            <form action="/shop/#{{product.id}}" class="col-2 " method="post">
+                                {% csrf_token %}
+                                <input hidden type="text" name='product' value='{{product.id}}'>
+                                <input type="submit" value=" + " class="btn btn-block btn-light border-left">
+                            </form>
+                        </div>
+                        {% else %}
+                        <form action="/shop/#{{product.id}}" method="post" class="btn-block">
+                            {% csrf_token %}
+                            <input type="text" name="product" value="{{product.id}}" hidden>
+                            <input type="submit" class="float-right btn border btn-block add-to-cart mb-2 " value="Add to Cart">
+                        </form>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

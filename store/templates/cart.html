@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block title %}Cart - WaterHub @DoorStep Water Delivery {% endblock %}
+
+{% block css %}
+.checkout-btn{
+margin-left: 20%;
+margin-top: 5%;
+margin-bottom: 25px;
+padding: 8px 50px 8px 50px;
+}
+.check-title{
+color: #385E63;
+}
+.cart-title{
+color: #385E63;
+}
+{% endblock %}
+{% block body %}
+{% load cart %}
+{% load static %}
+<!--{{name}}-->
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 mb-5">
+            <div class="border rounded p-4 ">
+                <p class="display-6 pl-4 ml-4 fw-bold cart-title">Your Cart</p>
+                <hr>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Sno.</th>
+                        <th>Image</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Sub Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td><img style="height: 80px;" class="rounded-circle" src="{{product.image.url}}" alt=""></td>
+                        <td>{{product.name}}</td>
+                        <td>₹ {{product.price}}</td>
+                        <td>{{product|cart_quantity:request.session.cart}}</td>
+                        <td>₹ {{product|price_total:request.session.cart}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class="m-3 p-3">
+                    <a href="/clearcart/" class="btn btn-danger border rounded  col-lg-3 float-right">Clear Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 mb-3">
+            <div class="border rounded">
+                <div class="border m-3">
+                    <h3 class="check-title text-center p-2">Checkout</h3>
+                </div>
+                <div>
+                    <table class="text-center">
+                        <tr>
+                            <td width="75%" align="left"
+                                style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                                Purchased Item ({{request.session.cart.keys|length}})
+                            </td>
+                            <td width="25%" align="left"
+                                style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                                ₹ {{products|total_cart_price:request.session.cart}}
+                            </td>
+                        </tr>
+                        <tr class="border-bottom">
+                            <td width="75%" align="left"
+                                style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
+                                Shipping
+                            </td>
+                            <td width="25%" align="left"
+                                style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
+                                <b>Free</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="75%" align="left"
+                                style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
+                                Total Cart :
+                            </td>
+                            <td width="25%" align="left"
+                                style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 17px;">
+                                ₹ {{products|total_cart_price:request.session.cart}}
+                            </td>
+                        </tr>
+                    </table>
+                    <a href="/checkout" class="btn btn-info border rounded checkout-btn">Check out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

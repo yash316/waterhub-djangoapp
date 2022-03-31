@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Payment Success {% endblock %}
+{% block css %} {% endblock %}
+{% block body %}
+<div class="text-center">
+    <img src="{% static 'images/checked.png' %}" height="200">
+    <h2>Payment Successful.</h2>
+    <p>Your payment has been processed successfully and your order is confirmed. Please check your email for order
+        details.</p>
+</div>
+<div class="m-3 p-3 text-center">
+    <a href="/shop/" class="btn btn-success border rounded  col-lg-2">Shop Again</a>
+</div>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block title %}Checkout - WaterHub @DoorStep Water Delivery {% endblock %}
+{% block css %}
+.checkout-btn{
+
+margin-bottom: 25px;
+padding: 8px 50px 8px 50px;
+
+}
+{% endblock %}
+{% block body %}
+{% load cart %}
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-lg-4">
+            <h3 class="mb-3">Order Summery</h3>
+            <div class="alert alert-primary mt-3" role="alert">
+                Your Cart Total is : ₹{{products|total_cart_price:request.session.cart}}
+            </div>
+            {% for product in products%}
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{product.name}}
+                    <span class="badge bg-primary rounded-pill">{{product|cart_quantity:request.session.cart}}</span>
+                </li>
+            </ul>
+            {% endfor %}
+        </div>
+        <div class="col-lg-8">
+            <h3 class="mb-3">Checkout Details</h3>
+            <div class="border p-3">
+                <form class="row g-3" action="" method="post">
+                    {% csrf_token %}
+                    <textarea name="product_list" rows="7" cols="50" hidden>
+                    {{products}}
+                    </textarea>
+                    <input value="{{request.session.customer}}" name="customer_id" hidden>
+                    <input value="{{request.session.cart.values}}" name="quantity" hidden>
+                    <input value="{{products|total_cart_price:request.session.cart}}" name="price" hidden>
+                    <div class="col-md-4">
+                        <label class="form-label">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name" value="{{name}}" readonly>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Phone:</label>
+                        <input type="tel" class="form-control" id="Phone" name="phone">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Address:</label>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St">
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <label class="form-label">City:</label>
+                            <input type="text" class="form-control" id="city" name="city">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Pincode:</label>
+                            <input type="text" class="form-control" id="pincode" name="pincode">
+                        </div>
+                    </div>
+
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-outline-info border rounded checkout-btn">Confirm Order</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% if payment%}
+<div class="text-center mx-auto">
+    <form action="/success/" method="post">
+        <script src="https://checkout.razorpay.com/v1/checkout.js"
+                data-key="rzp_test_udHvAtideokL3X"
+                data-amount="{{payment.price}}"
+                data-currency="INR"
+                data-order_id="{{payment.id}}"
+                data-buttontext="Pay with Razorpay"
+                data-name="Online Payment- WaterHub"
+                data-description="Django - Project"
+                data-image="https://img.icons8.com/external-filled-outline-wichaiwi/344/external-drinking-water-services-business-filled-outline-wichaiwi.png""
+                data-prefill.name="WaterHub"
+                data-prefill.email="sameer.watersuplier@gmail.com"
+                data-theme.color="#F37254">
+        </script>
+        <input type="hidden" custome="'Hidden Element" name="hidden">
+    </form>
+    {% endif %}
+
+
+</div>
+
+{% endblock %}
